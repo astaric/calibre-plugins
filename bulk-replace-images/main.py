@@ -33,7 +33,8 @@ class BulkReplaceImagesTool(Tool):
 
         book_images = {}
         for filename in self.current_container.manifest_items_of_type(is_raster_image):
-            name, _ = os.path.splitext(filename)
+            _, name = os.path.split(filename)
+            name, _ = os.path.splitext(name)
             book_images[name] = filename
 
         os.chdir(dir)
